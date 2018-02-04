@@ -1,0 +1,12 @@
+sudo: required
+os: linux
+language: minimal
+
+services:
+  - docker
+
+script:
+  - echo "Monthly push to Docker HUB"
+  - docker build --no-cache -t llgameserverbot/push-monthly .
+  - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_PASS";
+  - docker push llgameserverbot/push-monthly;

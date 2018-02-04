@@ -7,7 +7,7 @@ services:
 
 script:
   - echo "Monthly push to Docker HUB"
-  - curl -X POST "https://hooks.microbadger.com/images/lacledeslan/gamesvr-cssource/$DOCKERCLOUD_TRIGGER_LLGAMESVR_BLACKMESA/call/
+  - curl -X POST "https://cloud.docker.com/api/build/v1/source/$DOCKERCLOUD_TRIGGER_LLGAMESVR_BLACKMESA/call/"
   - docker build --no-cache -t llgameserverbot/push-monthly .
   - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_PASS";
   - docker push llgameserverbot/push-monthly;
